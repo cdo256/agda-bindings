@@ -11,14 +11,14 @@ This tool generates rules for [obsidian-latex-suite](https://github.com/artempya
 
 Example output:
 
-```json
+```text
 {trigger: "\\bN", replacement: "\\mathbb{N}", options: "mA"},
 {trigger: "\\bN", replacement: "$\\mathbb{N}$", options: "tA"},
 ```
 
 ## Why?
 
-Agda users are used to typing rich Unicode math notation directly using escape sequences. With this tool, you can bring the same typing experience into Obsidian for taking notes, writing papers, or documenting proofs.
+Agda users are accustomed to typing rich Unicode math notation directly using escape sequences. With this tool, you can bring the same typing experience into Obsidian for taking notes, writing papers, or documenting proofs.
 
 ## Current Limitations
 
@@ -45,18 +45,18 @@ If you’d like to improve the mappings, add better formatting logic, or handle 
 
 ### Prerequisites
 
-This setup currently relies on [Nix](https://nixos.org/) flakes so you need Nix with flakes enabled to get it to work. That should set up all the dependencies and work without an issue. This however means that Windows and any other operating system without Nix will require manual setup to work.
+This setup currently relies on [Nix](https://nixos.org/) flakes, so you'll need Nix with flakes enabled. That should set up all dependencies and work out of the box. However, this means that Windows and any other operating system without Nix will require manual setup.
 
-Nix will install Emacs via my custom wrapper [just-agda](https://github.com/cdo256/just-agda) which is simply a Nix flake which generates with just enough to run Agda in Emacs.
+Nix will install Emacs via my custom wrapper [just-agda](https://github.com/cdo256/just-agda), which is simply a Nix flake that provides just enough to run Agda in Emacs.
 
-If instead you want/have to set this up manually, you will need:
+If you prefer—or need—to set things up manually, you’ll need:
 
-- Python 3 with `pylatexenc` 2.10 or newer
-- Emacs - tested on 30.2 but should work on other versions
-- Agda - At least 2.2.0 (must be compatible with Emacs)
-- `agda-mode` installed on Emacs
+- Python 3 with `pylatexenc` version 2.10 or newer
+- Emacs (tested on 30.2, but should work on other versions)
+- Agda (at least 2.2.0 and compatible with Emacs)
+- `agda-mode` installed in Emacs
 
-Regardless of whether you use Nix, you will need:
+Regardless of whether you use Nix, you will also need:
 
 - [Obsidian](https://obsidian.md/)
 - [Obsidian Latex Suite](https://github.com/artisticat1/obsidian-latex-suite)
@@ -71,7 +71,7 @@ Regardless of whether you use Nix, you will need:
    ```bash
    python convert-bindings.py > <YOUR_OBSIDIAN_DIRECTORY>/latex-suite-snippets.json
    ```
-3. In Obsidian > Settings > Community Plugins > Latex Suite, set the folder location to point to the JSON file you just created.
+3. In Obsidian, go to **Settings > Community Plugins > Latex Suite**, and set the folder location to the JSON file you just created.
 
 This will:
 
@@ -82,4 +82,4 @@ This will:
 
 ## License
 
-Free and open source under then MIT License.
+Free and open source under the MIT License.
