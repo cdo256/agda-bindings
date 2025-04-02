@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pylatexenc.latexencode import unicode_to_latex
 import csv
+import subprocess as sp
 import re
 
 
@@ -10,6 +11,10 @@ def escape(str):
 
 def transform_latex(str):
     return re.sub(r"^\\ensuremath\{(.*)\}", r"\1", str)
+
+
+def extract():
+    sp.run(["just-agda", "--batch", "--script", "extract-bindings.el"])
 
 
 def convert():
@@ -51,4 +56,7 @@ def convert():
 
 
 if __name__ == "__main__":
+    print("Extracting...")
+    extract()
+    print("Converting...")
     convert()  # print(e)
