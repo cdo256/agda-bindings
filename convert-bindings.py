@@ -32,6 +32,7 @@ def convert():
                 index = int(row[3])
                 # See for how to add more conversion rules: https://github.com/phfaist/pylatexenc/blob/73eca0574eb1fa2b02293587d4b8f5533e6c0d5f/pylatexenc/latexencode/_uni2latexmap.py
                 latex = unicode_to_latex(character)
+                latex = transform_latex(latex)
                 duplicity = sequence_map[sequence]
                 suffix = (
                     ""
