@@ -1,3 +1,10 @@
+(defun escape (input)
+  "Escape backslashes and double quotes in the given INPUT string."
+  (replace-regexp-in-string
+   "[\\\"]" ; Match backslashes and double quotes
+   "\\\\\\&" ; Prepend a backslash to the matched character
+   input))
+
 (defun agda-export-symbols (filename)
   "Export Agda input method translations to CSV, handling multi-character entries."
   (interactive "FOutput file: ")
@@ -5,7 +12,7 @@
   (with-temp-buffer
     (insert "Sequence,Character,Hex\n")
     (dolist (entry agda-input-translations)
-      (let* ((seq (concat "\\" (car entry)))
+      (let* ((seq (concat "\\" (escape (car entry))))
              (chars (cdr entry))
              (hex (lambda (c) 
                     (ignore-errors 
