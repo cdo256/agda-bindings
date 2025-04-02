@@ -38,6 +38,9 @@
           #ps.standard-library
         ]);
         just-agda = inputs.just-agda.packages.${pkgs.system}.default;
+        python = pkgs.python312.withPackages (ps: [
+          ps.pylatexenc
+        ]);
       in
       {
         packages = {
@@ -48,6 +51,7 @@
           buildInputs = [
             agda
             just-agda
+            python
           ];
         };
       }
