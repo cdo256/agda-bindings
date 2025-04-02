@@ -45,6 +45,10 @@ def convert():
                     else f"{index:1d}" if duplicity < 10 else f"{index:2d}"
                 )
                 auto_flag = "A" if len(sequence) > 2 else ""
+                if '"' in sequence:
+                    # FIXME: Quotes may require escape the csv in the elisp code.
+                    continue
+
                 # Produce bindings for both math and text mode.
                 print(
                     f'    {{trigger: "{escape(sequence)}{suffix}", replacement: "{escape(latex)}", options: "m{auto_flag}"}},'
